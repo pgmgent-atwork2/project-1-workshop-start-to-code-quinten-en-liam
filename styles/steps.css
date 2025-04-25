@@ -6,11 +6,11 @@
     padding-inline: 5rem;
 }
 
-.steps__item--text img {
+.steps__items--text img {
     padding-left: 6rem;
 }
 
-.steps__item--text {
+.steps__items--text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
