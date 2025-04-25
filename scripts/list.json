@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "word": "huis",
+    "hint": "Een plek waar mensen wonen."
+  },
+  {
+    "id": 2,
+    "word": "fiets",
+    "hint": "Een tweewielig voertuig dat je met pedalen voortbeweegt."
+  },
+  {
+    "id": 3,
+    "word": "boom",
+    "hint": "Een grote plant met een stam en takken."
+  },
+  {
+    "id": 4,
+    "word": "water",
+    "hint": "Een vloeistof die we drinken en nodig hebben om te leven."
+  },
+  {
+    "id": 5,
+    "word": "zon",
+    "hint": "De ster die overdag licht en warmte geeft."
+  },
+  {
+    "id": 6,
+    "word": "maan",
+    "hint": "Het hemellichaam dat 's nachts aan de hemel staat."
+  },
+  {
+    "id": 7,
+    "word": "auto",
+    "hint": "Een voertuig met vier wielen dat door een motor wordt aangedreven."
+  },
+  {
+    "id": 8,
+    "word": "boek",
+    "hint": "Een verzameling van geschreven of gedrukte pagina's."
+  },
+  {
+    "id": 9,
+    "word": "stoel",
+    "hint": "Een meubelstuk waarop je kunt zitten."
+  },
+  {
+    "id": 10,
+    "word": "tafel",
+    "hint": "Een meubelstuk met een plat oppervlak, vaak gebruikt om aan te eten of werken."
+  },
+  {
+    "id": 11,
+    "word": "school",
+    "hint": "Een plaats waar kinderen en jongeren leren."
+  },
+  {
+    "id": 12,
+    "word": "leraar",
+    "hint": "Iemand die lesgeeft op een school."
+  },
+  {
+    "id": 13,
+    "word": "student",
+    "hint": "Iemand die studeert aan een onderwijsinstelling."
+  },
+  {
+    "id": 14,
+    "word": "appel",
+    "hint": "Een ronde vrucht die vaak rood, groen of geel is."
+  },
+  {
+    "id": 15,
+    "word": "banaan",
+    "hint": "Een gele, gebogen vrucht met een zachte binnenkant."
+  },
+  {
+    "id": 16,
+    "word": "brood",
+    "hint": "Een basisvoedsel gemaakt van meel en water, vaak gebakken."
+  },
+  {
+    "id": 17,
+    "word": "kaas",
+    "hint": "Een zuivelproduct gemaakt van melk, vaak geel en stevig."
+  },
+  {
+    "id": 18,
+    "word": "melk",
+    "hint": "Een witte vloeistof geproduceerd door zoogdieren, vaak gedronken door mensen."
+  },
+  {
+    "id": 19,
+    "word": "thee",
+    "hint": "Een warme drank gemaakt door bladeren in heet water te laten trekken."
+  },
+  {
+    "id": 20,
+    "word": "koffie",
+    "hint": "Een donkere, cafeïnehoudende drank gemaakt van bonen."
+  },
+  {
+    "id": 21,
+    "word": "computer",
+    "hint": "Een elektronisch apparaat dat gegevens verwerkt en opslaat."
+  },
+  {
+    "id": 22,
+    "word": "telefoon",
+    "hint": "Een apparaat waarmee je met anderen kunt praten over afstand."
+  },
+  {
+    "id": 23,
+    "word": "radio",
+    "hint": "Een apparaat dat geluidsgolven ontvangt en afspeelt."
+  },
+  {
+    "id": 24,
+    "word": "televisie",
+    "hint": "Een apparaat dat bewegende beelden en geluid uitzendt."
+  },
+  {
+    "id": 25,
+    "word": "klok",
+    "hint": "Een instrument dat de tijd aangeeft."
+  }
+]
