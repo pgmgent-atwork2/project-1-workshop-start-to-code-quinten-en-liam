@@ -24,7 +24,6 @@
   border: 2px solid var(--border);
   padding: 1rem;
 
-
   & .hangman__hint {
     display: flex;
     align-items: center;
@@ -38,19 +37,18 @@
       font-weight: 600;
     }
 
-    img{
+    img {
       width: 2rem;
       height: 2rem;
       color: var(--primary);
     }
   }
 
-
-  & .hangman__description{
+  & .hangman__description {
     margin: 1rem 0;
   }
 
-  & .hangman__lives{
+  & .hangman__lives {
     font-size: 1.25rem;
     margin: 1rem 0;
     color: var(--primary);
@@ -70,4 +68,5 @@
   font-size: 4rem;
   list-style-type: none;
   margin-bottom: 2rem;
+  padding-left: 0;
 }
