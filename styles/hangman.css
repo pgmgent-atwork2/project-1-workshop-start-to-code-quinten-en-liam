@@ -4,6 +4,7 @@
   height: 100vh;
   max-width: 60rem;
   margin-inline: auto;
+  padding: 1rem;
 }
 
 .game__title {
@@ -20,14 +21,30 @@
   border-radius: 1rem;
   background: var(--card);
   color: var(--card-foreground);
-  box-shadow: 4px 4px 2px 2px var(--card-foreground);
-  padding: 2rem;
+  border: 2px solid var(--border);
+  padding: 1rem;
 
 
   & .hangman__hint {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
     padding: 1rem;
     border-radius: 1rem;
+    background: var(--primary-foreground);
+
+    .hangman__hint__text {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    img{
+      width: 2rem;
+      height: 2rem;
+      color: var(--primary);
+    }
   }
+
 
   & .hangman__description{
     margin: 1rem 0;
@@ -41,6 +58,7 @@
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
   }
 }
 
