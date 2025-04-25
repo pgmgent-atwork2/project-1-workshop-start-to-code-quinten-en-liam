@@ -54,23 +54,6 @@
   gap: 1rem;
 }
 
-.modal .modal__container .close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  &:hover {
-    background: var(--accent);
-  }
-}
-
-.modal__container .close svg {
-  max-width: 1.5rem;
-  width: 100%;
-}
-
 @media only screen and (min-width: 64rem) {
   .modal {
     left: 50%;

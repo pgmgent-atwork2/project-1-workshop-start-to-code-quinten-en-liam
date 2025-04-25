@@ -1,0 +1,22 @@
+.keyboard__key {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  margin: 0.1em;
+  background-color: #f0f0f0;
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  box-shadow: 2px 2px 5px #222;
+
+  .keyboard__key:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}

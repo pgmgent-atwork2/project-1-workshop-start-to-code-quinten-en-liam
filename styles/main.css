@@ -6,7 +6,22 @@
 @import url("./intro.css");
 @import url("./steps.css");
 @import url("./modal.css");
+@import url("./keyboard.css");
+@import url("./hangman.css");
 
 .hide {
   display: none;
+}
+
+.win,
+.lose {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.win {
+  color: green;
+}
+.lose {
+  color: red;
 }

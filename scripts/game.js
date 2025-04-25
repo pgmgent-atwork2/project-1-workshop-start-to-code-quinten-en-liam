@@ -15,14 +15,18 @@ function gameOver(word) {
   $overlay.classList.add("active");
   $modal.classList.remove("hide");
   $modalTitle.innerHTML = "Game Over";
-  $modalMessage.innerHTML = `You lost the word was ${word.join("")}`;
+  $modalMessage.innerHTML = `Je bent verloren, uw woord was <span class="lose">${word.join(
+    ""
+  )}</span>`;
 }
 
 function gameWin(word) {
   $overlay.classList.add("active");
   $modal.classList.remove("hide");
   $modalTitle.innerHTML = "You won!";
-  $modalMessage.innerHTML = `You guessed the word ${word.join("")}`;
+  $modalMessage.innerHTML = `je hebt het juist woord geraden! <span class="win">${word.join(
+    ""
+  )}</span>`;
 }
 
 async function initGame() {
