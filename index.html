@@ -9,14 +9,16 @@
   <body>
     <div class="container">
       <section class="hangman">
-        <div class="hangman__image"></div>
+        <div class="hangman__image" id="hangman-img"></div>
         <div class="hangman__content">
           <h1 class="hangman__title">Hangman</h1>
           <p class="hangman__description">
             Guess the word before your guesses run out!
           </p>
           <ul class="hangman__word" id="word"></ul>
-          <div class="hangman__letters"></div>
+          <div class="hangman__lives" id="lives">
+            <p>0 / 6</p>
+          </div>
           <div class="hangman__keyboard">
             <div class="keyboard__row">
               <button class="keyboard__key" id="key-a">A</button>

@@ -2,10 +2,15 @@ export function startGame() {
   initGame();
 }
 
+function GameOver() {
+  alert("Game Over!");
+}
+
 async function initGame() {
   const wordList = await fetchWordList();
 
   buildWord(wordList.word);
+  drawHangman(0);
 }
 
 async function fetchWordList() {
@@ -38,17 +43,24 @@ function buildWord(word) {
 }
 
 function keyboard(word) {
+  let count = 0;
   const $keyboardKey = document.querySelectorAll(".keyboard__key");
 
   $keyboardKey.forEach(($key) => {
     $key.addEventListener("click", () => {
+      const $lives = document.getElementById("lives");
       const letter = $key.innerHTML;
-
       const formatedLetter = letter.toLowerCase();
-
       const isInWord = checkLetter(formatedLetter, word);
 
       if (!isInWord) {
+        count++;
+        $lives.innerHTML = `<p>${count} / 6 </p>`;
+
+        drawHangman(count);
+        if (count === 6) {
+          GameOver();
+        }
         $key.ariaDisabled = true;
         $key.disabled = true;
       }
@@ -61,6 +73,12 @@ function keyboard(word) {
       }
     });
   });
+}
+
+function drawHangman(count) {
+  const $hangman = document.getElementById("hangman-img");
+
+  $hangman.innerHTML = ` <img src="./images/hangman-${count}.svg" alt="Hangman ${count}" />`;
 }
 
 function checkLetter(letter, word) {
