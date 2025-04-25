@@ -1,3 +1,8 @@
+const $overlay = document.getElementById("overlay");
+const $modal = document.getElementById("modal");
+const $modalTitle = document.getElementById("modal-title");
+const $modalMessage = document.getElementById("modal-message");
+
 export function startGame() {
   initGame();
 }
@@ -6,12 +11,18 @@ function resetGame() {
   location.reload();
 }
 
-function GameOver() {
-  
+function gameOver(word) {
+  $overlay.classList.add("active");
+  $modal.classList.remove("hide");
+  $modalTitle.innerHTML = "Game Over";
+  $modalMessage.innerHTML = `You lost the word was ${word.join("")}`;
 }
 
-function GameWin() {
-  alert("You Win!");
+function gameWin(word) {
+  $overlay.classList.add("active");
+  $modal.classList.remove("hide");
+  $modalTitle.innerHTML = "You won!";
+  $modalMessage.innerHTML = `You guessed the word ${word.join("")}`;
 }
 
 async function initGame() {
@@ -22,6 +33,11 @@ async function initGame() {
   buildWord(wordList.word);
 
   drawHangman(0);
+
+  const $playAgain = document.getElementById("play-again");
+  $playAgain.addEventListener("click", () => {
+    resetGame();
+  });
 }
 
 async function fetchWordList() {
@@ -65,15 +81,13 @@ function keyboard(word) {
       const isInWord = checkLetter(formatedLetter, word);
       checkWin(word);
 
-      console.log(word);
-
       if (!isInWord) {
         count++;
         $lives.innerHTML = `<p>${count} / 6 </p>`;
 
         drawHangman(count);
         if (count === 6) {
-          GameOver();
+          gameOver(word);
         }
 
         if (!checkDuplicateLetter(formatedLetter, word)) {
@@ -139,7 +153,7 @@ function checkWin(word) {
   });
 
   if (word.every((l) => count.includes(l))) {
-    GameWin();
+    gameWin(word);
   }
 }
 

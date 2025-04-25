@@ -5,3 +5,8 @@
 @import url("./container-content.css");
 @import url("./intro.css");
 @import url("./steps.css");
+@import url("./modal.css");
+
+.hide {
+  display: none;
+}
