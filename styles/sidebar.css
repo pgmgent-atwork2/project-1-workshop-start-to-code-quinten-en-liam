@@ -1,0 +1,29 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    width: 20rem;
+    background-color: #f1f1f1;
+}
+
+.sidebar__item {
+    padding: 1rem;
+
+    & a {
+        text-decoration: none;
+        color:black;
+    }
+
+    &:hover {
+        background-color: #03a5fc;
+
+        & a {
+            color: white;
+        }
+    }
+}
+
+.sidebar__text {
+    font-size: 1rem;
+}
