@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Hangman</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hangman">
+        <div class="hangman__image" id="hangman-img"></div>
+        <div class="hangman__content">
+          <h1 class="hangman__title">Hangman</h1>
+          <p class="hangman__description">
+            Guess the word before your guesses run out!
+          </p>
+          <ul class="hangman__word" id="word"></ul>
+          <div class="hangman__lives" id="lives">
+            <p>0 / 6</p>
+          </div>
+          <div class="hangman__keyboard">
+            <div class="keyboard__row">
+              <button class="keyboard__key" id="key-a">A</button>
+              <button class="keyboard__key" id="key-b">B</button>
+              <button class="keyboard__key" id="key-c">C</button>
+              <button class="keyboard__key" id="key-d">D</button>
+              <button class="keyboard__key" id="key-e">E</button>
+              <button class="keyboard__key" id="key-f">F</button>
+              <button class="keyboard__key" id="key-g">G</button>
+            </div>
+            <div class="keyboard__row">
+              <button class="keyboard__key" id="key-h">H</button>
+              <button class="keyboard__key" id="key-i">I</button>
+              <button class="keyboard__key" id="key-j">J</button>
+              <button class="keyboard__key" id="key-k">K</button>
+              <button class="keyboard__key" id="key-l">L</button>
+              <button class="keyboard__key" id="key-m">M</button>
+            </div>
+            <div class="keyboard__row">
+              <button class="keyboard__key" id="key-n">N</button>
+              <button class="keyboard__key" id="key-o">O</button>
+              <button class="keyboard__key" id="key-p">P</button>
+              <button class="keyboard__key" id="key-q">Q</button>
+              <button class="keyboard__key" id="key-r">R</button>
+              <button class="keyboard__key" id="key-s">S</button>
+            </div>
+            <div class="keyboard__row">
+              <button class="keyboard__key" id="key-t">T</button>
+              <button class="keyboard__key" id="key-u">U</button>
+              <button class="keyboard__key" id="key-v">V</button>
+              <button class="keyboard__key" id="key-w">W</button>
+              <button class="keyboard__key" id="key-x">X</button>
+              <button class="keyboard__key" id="key-y">Y</button>
+              <button class="keyboard__key" id="key-z">Z</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./scripts/main.js"></script>
+  </body>
+</html>
