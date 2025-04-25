@@ -5,31 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial Hangman</title>
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="container__header">
-        <h1>Welkom bij de hangman tutorial</h1>
-        <p>In deze tutorial leer je hoe je een hangman spel maakt met HTML, CSS en JavaScript.</p>
+        <div>
+            <h1>Welkom bij de hangman tutorial</h1>
+        </div>
+        <div>
+            <p>In deze tutorial leer je hoe je een hangman spel maakt met HTML, CSS en JavaScript.</p>
+        </div>
     </header>
-    <main>
+    <main class="container__main">
         <aside class="sidebar">
-            <article>
-                <a href="#">Stap 1: mappen en bestanden</a>
+            <article class="sidebar__item">
+                <a href="#stepone">
+                    <div class="sidebar__text">
+                        <h2>Stap 1: mappen en bestanden</h2>
+                    </div>
+                </a>
             </article>
-            <article>
-                <a href="#">Stap 2: HTML en CSS</a>
+            <article class="sidebar__item">
+                <a href="#">
+                    <div class="sidebar__text">
+                        <h2>Stap 2: HTML en CSS</h2>
+                    </div>
+                </a>
             </article>
-            <article>
-                <a href="#">Stap 3:</a>
+            <article class="sidebar__item">
+                <a href="#">
+                    <div>
+                        <h2>Stap 3:</h2>
+                    </div>
+                </a>
             </article>
-            <article>
-                <a href="#">Stap 4:</a>
+            <article class="sidebar__item">
+                <a href="#">
+                    <div>
+                        <h2>Stap 4:</h2>
+                    </div>
+                </a>
             </article>
-            <article>
-                <a href="#">Stap 5:</a>
+            <article class="sidebar__item">
+                <a href="#">
+                    <div>
+                        <h2>Stap 5:</h2>
+                    </div>
+                </a>
             </article>
         </aside>
+        <section class="container__content">
+            <section class="intro">
+                    <div>
+                        <h3>We gaan het spel hangman maken!</h3>
+                        <p>Jullie zullen een klein proevertje krijgen van 1 van de oneindige mogelijkheden dat je kan doen als developer.</p>
+                        <p>We gebruiken in deze workshop de code-editor <a href="https://code.visualstudio.com/">Visual Studio Code.</a></p>
+                        <p>We gaan gebruik maken van volgende codetalen:
+                            <ul>
+                                <li>JavaScript</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div>
+                        <img src="#" alt="foto van het hangman spel">
+                    </div>
+            </section>
+            <section class="container__stepone" id="stepone">
+                <article class="stepone__item">
+                    <div>
+                        <h2>Stap 1- mappen en bestanden</h2>
+                    </div>
+                    <div class="stepone__item--text">
+                        <div>
+                            <ul>
+                                <li>1.1 Maak een nieuwe map aan en geef als naam hangman</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="images/map-hangman.png" alt="screenshot map hangman">
+                        </div>
+                    </div>
+                    <div class="stepone__item--text">
+                        <div>
+                            <ul>
+                                <li>1.2 Open het programma <a href="https://code.visualstudio.com/">Visual Studio Code</a> en open de folder die je zonet hebt gemaakt</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="images/choose-map-in-vscode.png" alt="screenshot van het kiezen van de map in Visual Studio Code">
+                        </div>
+                    </div>
+                    <div class="stepone__item--text">
+                        <div>
+                            <ul>
+                                <li>1.3 Maak de volgende folderstructuur</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="images/folder-structure.png" alt="screenhot van de folderstructuur">
+                        </div>
+                    </div>
+                    <div class="stepone__item--text">
+                        <ul>
+                            <li>1.4 druk met een rechter muisklik op de index.html en druk op open with liveserver, zo wordt je standaard browser gestart en zal je een blanco pagina zien verschijnen!</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+            <section class="container__steptwo">
 
+            </section>
+        </section>
     </main>
 </body>
 </html>

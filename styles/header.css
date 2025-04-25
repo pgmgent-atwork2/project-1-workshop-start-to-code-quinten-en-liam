@@ -1,0 +1,7 @@
+.container__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    font-family: "Winky Rough", sans-serif;
+}

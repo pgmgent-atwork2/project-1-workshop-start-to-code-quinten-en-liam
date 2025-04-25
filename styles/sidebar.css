@@ -5,6 +5,7 @@
     position: fixed;
     width: 20rem;
     background-color: #f1f1f1;
+    height: 100vh;
 }
 
 .sidebar__item {
