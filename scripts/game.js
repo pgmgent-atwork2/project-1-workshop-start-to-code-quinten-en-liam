@@ -2,14 +2,25 @@ export function startGame() {
   initGame();
 }
 
+function resetGame() {
+  location.reload();
+}
+
 function GameOver() {
-  alert("Game Over!");
+  
+}
+
+function GameWin() {
+  alert("You Win!");
 }
 
 async function initGame() {
+  const $hint = document.getElementById("hint");
   const wordList = await fetchWordList();
 
+  $hint.innerHTML = wordList.hint;
   buildWord(wordList.word);
+
   drawHangman(0);
 }
 
@@ -52,6 +63,9 @@ function keyboard(word) {
       const letter = $key.innerHTML;
       const formatedLetter = letter.toLowerCase();
       const isInWord = checkLetter(formatedLetter, word);
+      checkWin(word);
+
+      console.log(word);
 
       if (!isInWord) {
         count++;
@@ -61,15 +75,42 @@ function keyboard(word) {
         if (count === 6) {
           GameOver();
         }
-        $key.ariaDisabled = true;
-        $key.disabled = true;
+
+        if (!checkDuplicateLetter(formatedLetter, word)) {
+          $key.ariaDisabled = true;
+          $key.disabled = true;
+        }
       }
 
       if (isInWord) {
-        const $letter = document.getElementById(
-          `letter-${word.indexOf(formatedLetter)}`
-        );
-        $letter.innerHTML = formatedLetter;
+        if (checkDuplicateLetter(formatedLetter, word)) {
+          let duplicatedIndex = [];
+          word.forEach((l, i) => {
+            if (l === formatedLetter) {
+              duplicatedIndex.push(i);
+            }
+          });
+
+          duplicatedIndex.forEach((i) => {
+            const $letter = document.getElementById(`letter-${i}`);
+            $letter.innerHTML = formatedLetter;
+            $key.ariaDisabled = true;
+            $key.disabled = true;
+          });
+
+          checkWin(word);
+        }
+
+        if (!checkDuplicateLetter(formatedLetter, word)) {
+          const $letter = document.getElementById(
+            `letter-${word.indexOf(formatedLetter)}`
+          );
+          $letter.innerHTML = formatedLetter;
+          $key.ariaDisabled = true;
+          $key.disabled = true;
+
+          checkWin(word);
+        }
       }
     });
   });
@@ -83,6 +124,23 @@ function drawHangman(count) {
 
 function checkLetter(letter, word) {
   return word.includes(letter);
+}
+
+function checkDuplicateLetter(letter, word) {
+  return word.filter((l) => l === letter).length > 1;
+}
+
+function checkWin(word) {
+  let count = [];
+  const $letters = document.querySelectorAll(".letter");
+
+  $letters.forEach(($letter) => {
+    count.push($letter.innerHTML.toLowerCase());
+  });
+
+  if (word.every((l) => count.includes(l))) {
+    GameWin();
+  }
 }
 
 function splitWord(word) {
