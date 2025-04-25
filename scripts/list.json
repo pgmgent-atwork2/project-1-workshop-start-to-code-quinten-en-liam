@@ -123,5 +123,130 @@
     "id": 25,
     "word": "klok",
     "hint": "Een instrument dat de tijd aangeeft."
+  },
+  {
+    "id": 26,
+    "word": "horloge",
+    "hint": "Een klein apparaat dat je om je pols draagt om de tijd te zien."
+  },
+  {
+    "id": 27,
+    "word": "winkel",
+    "hint": "Een plaats waar je producten kunt kopen."
+  },
+  {
+    "id": 28,
+    "word": "geld",
+    "hint": "Wat je gebruikt om te betalen."
+  },
+  {
+    "id": 29,
+    "word": "vriend",
+    "hint": "Iemand die je graag mag en vaak ziet."
+  },
+  {
+    "id": 30,
+    "word": "familie",
+    "hint": "Mensen die met jou verwant zijn."
+  },
+  {
+    "id": 31,
+    "word": "huisdier",
+    "hint": "Een dier dat bij mensen in huis leeft."
+  },
+  {
+    "id": 32,
+    "word": "kat",
+    "hint": "Een klein huisdier met snorharen en een staart."
+  },
+  {
+    "id": 33,
+    "word": "hond",
+    "hint": "Een trouwe viervoeter en populair huisdier."
+  },
+  {
+    "id": 34,
+    "word": "straat",
+    "hint": "Een weg in een stad of dorp."
+  },
+  {
+    "id": 35,
+    "word": "stad",
+    "hint": "Een grote plaats met veel mensen, gebouwen en verkeer."
+  },
+  {
+    "id": 36,
+    "word": "dorp",
+    "hint": "Een kleinere woonplaats dan een stad."
+  },
+  {
+    "id": 37,
+    "word": "brug",
+    "hint": "Een constructie over water of een weg."
+  },
+  {
+    "id": 38,
+    "word": "toren",
+    "hint": "Een hoog, smal gebouw of deel van een gebouw."
+  },
+  {
+    "id": 39,
+    "word": "kerk",
+    "hint": "Een gebouw waar mensen samenkomen om te bidden."
+  },
+  {
+    "id": 40,
+    "word": "museum",
+    "hint": "Een plaats waar kunst of geschiedenis wordt tentoongesteld."
+  },
+  {
+    "id": 41,
+    "word": "bibliotheek",
+    "hint": "Een plek waar je boeken kunt lenen."
+  },
+  {
+    "id": 42,
+    "word": "strand",
+    "hint": "Een zandige plek bij de zee."
+  },
+  {
+    "id": 43,
+    "word": "zee",
+    "hint": "Grote hoeveelheid zout water tussen landen en continenten."
+  },
+  {
+    "id": 44,
+    "word": "rivier",
+    "hint": "Een natuurlijke waterstroom die door het land stroomt."
+  },
+  {
+    "id": 45,
+    "word": "berg",
+    "hint": "Een grote, hoge natuurlijke verhoging in het landschap."
+  },
+  {
+    "id": 46,
+    "word": "bos",
+    "hint": "Een gebied met veel bomen en planten."
+  },
+  {
+    "id": 47,
+    "word": "bloem",
+    "hint": "Een kleurrijk deel van een plant, vaak geurend."
+  },
+  {
+    "id": 48,
+    "word": "gras",
+    "hint": "Kleine groene planten die vaak in tuinen en parken groeien."
+  },
+  {
+    "id": 49,
+    "word": "tuin",
+    "hint": "Een plek bij een huis met planten of bloemen."
+  },
+  {
+    "id": 50,
+    "word": "weer",
+    "hint": "De toestand van de lucht, zoals regen of zonneschijn."
   }
 ]

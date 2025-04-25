@@ -19,7 +19,8 @@
   position: fixed;
   left: 0;
   top: 30%;
-  background-color: #f1f1f1;
+  background-color: var(--popover);
+  color: var(--popover-foreground);
   padding: 1rem;
   border-radius: 0.5rem;
   z-index: 10000;

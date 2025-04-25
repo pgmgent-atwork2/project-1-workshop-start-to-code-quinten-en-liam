@@ -5,15 +5,21 @@
   width: 2em;
   height: 2em;
   margin: 0.1em;
-  background-color: #f0f0f0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   border-radius: 0.2em;
   font-size: 1.5em;
-  box-shadow: 2px 2px 5px #222;
+  box-shadow: 0.5rem 0.5rem 0rem var(--card-foreground);
 
   .keyboard__key:hover {
     background-color: #e0e0e0;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
   }
 
   &:active {

@@ -42,6 +42,7 @@ async function initGame() {
   $playAgain.addEventListener("click", () => {
     resetGame();
   });
+
 }
 
 async function fetchWordList() {
@@ -87,7 +88,7 @@ function keyboard(word) {
 
       if (!isInWord) {
         count++;
-        $lives.innerHTML = `<p>${count} / 6 </p>`;
+        $lives.innerHTML = `<p>${count} / 6 keuzes</p>`;
 
         drawHangman(count);
         if (count === 6) {

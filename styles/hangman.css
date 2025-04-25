@@ -6,6 +6,11 @@
   margin-inline: auto;
 }
 
+.game__title {
+  font-size: 3rem;
+  text-align: center;
+}
+
 .hangman {
   display: grid;
   justify-items: center;
@@ -13,19 +18,38 @@
   gap: 2rem;
   grid-template-columns: 1fr;
   border-radius: 1rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 4px 4px 2px 2px var(--card-foreground);
+  padding: 2rem;
 
-  & .hangman__word {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    font-size: 4rem;
-    list-style-type: none;
+
+  & .hangman__hint {
+    padding: 1rem;
+    border-radius: 1rem;
   }
 
- 
+  & .hangman__description{
+    margin: 1rem 0;
+  }
+
+  & .hangman__lives{
+    font-size: 1.25rem;
+    margin: 1rem 0;
+    color: var(--primary);
+  }
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.hangman__word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 4rem;
+  list-style-type: none;
+  margin-bottom: 2rem;
 }
