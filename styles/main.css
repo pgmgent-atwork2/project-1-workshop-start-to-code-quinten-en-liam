@@ -16,12 +16,12 @@
 
 .win,
 .lose {
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-weight: 900;
+  font-size: 1.25rem;
 }
 
 .win {
-  color: green;
+  color: #4BB543;
 }
 .lose {
   color: red;
