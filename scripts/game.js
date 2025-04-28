@@ -2,6 +2,7 @@ const $overlay = document.getElementById("overlay");
 const $modal = document.getElementById("modal");
 const $modalTitle = document.getElementById("modal-title");
 const $modalMessage = document.getElementById("modal-message");
+let count = 0;
 
 export function startGame() {
   initGame();
@@ -42,7 +43,6 @@ async function initGame() {
   $playAgain.addEventListener("click", () => {
     resetGame();
   });
-
 }
 
 async function fetchWordList() {
@@ -75,64 +75,79 @@ function buildWord(word) {
 }
 
 function keyboard(word) {
-  let count = 0;
   const $keyboardKey = document.querySelectorAll(".keyboard__key");
 
   $keyboardKey.forEach(($key) => {
     $key.addEventListener("click", () => {
-      const $lives = document.getElementById("lives");
-      const letter = $key.innerHTML;
-      const formatedLetter = letter.toLowerCase();
-      const isInWord = checkLetter(formatedLetter, word);
-      checkWin(word);
-
-      if (!isInWord) {
-        count++;
-        $lives.innerHTML = `<p>${count} / 6 keuzes</p>`;
-
-        drawHangman(count);
-        if (count === 6) {
-          gameOver(word);
-        }
-
-        if (!checkDuplicateLetter(formatedLetter, word)) {
-          $key.ariaDisabled = true;
-          $key.disabled = true;
-        }
-      }
-
-      if (isInWord) {
-        if (checkDuplicateLetter(formatedLetter, word)) {
-          let duplicatedIndex = [];
-          word.forEach((l, i) => {
-            if (l === formatedLetter) {
-              duplicatedIndex.push(i);
-            }
-          });
-
-          duplicatedIndex.forEach((i) => {
-            const $letter = document.getElementById(`letter-${i}`);
-            $letter.innerHTML = formatedLetter;
-            $key.ariaDisabled = true;
-            $key.disabled = true;
-          });
-
-          checkWin(word);
-        }
-
-        if (!checkDuplicateLetter(formatedLetter, word)) {
-          const $letter = document.getElementById(
-            `letter-${word.indexOf(formatedLetter)}`
-          );
-          $letter.innerHTML = formatedLetter;
-          $key.ariaDisabled = true;
-          $key.disabled = true;
-
-          checkWin(word);
-        }
-      }
+      handleKeyboardKeys($key, word);
     });
   });
+
+  document.addEventListener("keydown", (e) => {
+    const keyPressed = document.getElementById(`key-${e.key}`);
+
+    if (!keyPressed) return;
+    if (keyPressed.ariaDisabled) return;
+
+    handleKeyboardKeys(keyPressed, word);
+  });
+}
+
+function handleKeyboardKeys($key, word) {
+  const $lives = document.getElementById("lives");
+  const letter = $key.innerHTML;
+  const formatedLetter = letter.toLowerCase();
+  const isInWord = checkLetter(formatedLetter, word);
+  checkWin(word);
+
+  if (!isInWord) {
+    count++;
+    $lives.innerHTML = `<p>${count} / 6 keuzes</p>`;
+
+    drawHangman(count);
+
+    if (count === 6) {
+      gameOver(word);
+    }
+  }
+
+  if (isInWord) {
+    addWordToList(formatedLetter, word, $key);
+  } else {
+    $key.ariaDisabled = true;
+    $key.disabled = true;
+  }
+}
+
+function addWordToList(formatedLetter, word, $key) {
+  if (checkDuplicateLetter(formatedLetter, word)) {
+    let duplicatedIndex = [];
+    word.forEach((l, i) => {
+      if (l === formatedLetter) {
+        duplicatedIndex.push(i);
+      }
+    });
+
+    duplicatedIndex.forEach((i) => {
+      const $letter = document.getElementById(`letter-${i}`);
+      $letter.innerHTML = formatedLetter;
+      $key.ariaDisabled = true;
+      $key.disabled = true;
+    });
+
+    checkWin(word);
+  }
+
+  if (!checkDuplicateLetter(formatedLetter, word)) {
+    const $letter = document.getElementById(
+      `letter-${word.indexOf(formatedLetter)}`
+    );
+    $letter.innerHTML = formatedLetter;
+    $key.ariaDisabled = true;
+    $key.disabled = true;
+
+    checkWin(word);
+  }
 }
 
 function drawHangman(count) {
