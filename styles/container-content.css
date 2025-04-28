@@ -1,20 +1,25 @@
 .container__main {
-    background: linear-gradient(to right, #add8e6, #bfefff);
-    animation: gradient 10s ease infinite;
+  background: linear-gradient(
+    to right,
+    var(--primary) 0,
+    var(--primary-foreground) 50%,
+    var(--primary-foreground) 100%
+  );
+  animation: gradient 10s ease infinite;
 }
 
 .container__content {
-    margin-left: 20rem;
+  margin-left: 15rem;
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
