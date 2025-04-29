@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Galgje spel</title>
+  </head>
+  <body>
+    <div class="go-back">
+      <a class="link" href="/"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"
+          />
+        </svg>
+        Terug naar hoofdmenu</a
+      >
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal hide">
+      <div class="modal__content">
+        <h2 id="modal-title" class="modal__title"></h2>
+        <p id="modal-message" class="modal__message"></p>
+        <button id="play-again" class="button modal__button">
+          Speel opnieuw
+        </button>
+      </div>
+    </div>
+
+    <div class="container game">
+      <section class="hangman__container">
+        <h1 class="game__title">Galgje</h1>
+        <ul class="hangman__word" id="word"></ul>
+        <div class="hangman">
+          <div class="hangman__image" id="hangman-img"></div>
+          <div class="hangman__content">
+            <p class="hangman__hint">
+              <img src="./images/info.svg" aria-hidden="true" /><span
+                class="hangman__hint__text"
+                id="hint"
+              ></span>
+            </p>
+            <p class="hangman__description">
+              Raad het woord door letters te kiezen. je hebt 6 kansen!
+            </p>
+            <div class="hangman__lives" id="lives">
+              <p>0 / 6 keuzes</p>
+            </div>
+            <div class="hangman__keyboard">
+              <div class="keyboard__row">
+                <button class="keyboard__key" id="key-a">A</button>
+                <button class="keyboard__key" id="key-b">B</button>
+                <button class="keyboard__key" id="key-c">C</button>
+                <button class="keyboard__key" id="key-d">D</button>
+                <button class="keyboard__key" id="key-e">E</button>
+                <button class="keyboard__key" id="key-f">F</button>
+                <button class="keyboard__key" id="key-g">G</button>
+              </div>
+              <div class="keyboard__row">
+                <button class="keyboard__key" id="key-h">H</button>
+                <button class="keyboard__key" id="key-i">I</button>
+                <button class="keyboard__key" id="key-j">J</button>
+                <button class="keyboard__key" id="key-k">K</button>
+                <button class="keyboard__key" id="key-l">L</button>
+                <button class="keyboard__key" id="key-m">M</button>
+              </div>
+              <div class="keyboard__row">
+                <button class="keyboard__key" id="key-n">N</button>
+                <button class="keyboard__key" id="key-o">O</button>
+                <button class="keyboard__key" id="key-p">P</button>
+                <button class="keyboard__key" id="key-q">Q</button>
+                <button class="keyboard__key" id="key-r">R</button>
+                <button class="keyboard__key" id="key-s">S</button>
+              </div>
+              <div class="keyboard__row">
+                <button class="keyboard__key" id="key-t">T</button>
+                <button class="keyboard__key" id="key-u">U</button>
+                <button class="keyboard__key" id="key-v">V</button>
+                <button class="keyboard__key" id="key-w">W</button>
+                <button class="keyboard__key" id="key-x">X</button>
+                <button class="keyboard__key" id="key-y">Y</button>
+                <button class="keyboard__key" id="key-z">Z</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./scripts/main.js"></script>
+  </body>
+</html>

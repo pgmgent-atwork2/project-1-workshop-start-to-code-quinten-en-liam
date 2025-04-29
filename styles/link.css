@@ -1,0 +1,26 @@
+.link__list {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background-color: var(--primary-foreground);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+    transition: color 0.3s ease-in-out;
+  }
+}

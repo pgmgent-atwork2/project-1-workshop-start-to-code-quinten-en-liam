@@ -1,4 +1,24 @@
 body {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
+.home__title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--foreground);
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    red 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-size: 100%;
+  background-position: 0% 50%;
+
+  @media screen and (min-width: 400px) {
+    font-size: 5rem;
+  }
+}
