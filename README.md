@@ -1,4 +1,4 @@
-## @work-2 Project 1 - hangmam
+## @work-2 Project 1 - hangman
 
 [Visit Website](https://pgmgent-atwork2.github.io/project-1-workshop-start-to-code-quinten-en-liam/)
 
