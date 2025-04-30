@@ -35,14 +35,21 @@
         <article class="sidebar__item">
             <a href="#stepfour">
                 <div>
-                    <h2>Stap 4: Het toetsenbord</h2>
+                    <h2>Stap 4: Woorden ophalen en maken</h2>
                 </div>
             </a>
         </article>
         <article class="sidebar__item">
             <a href="#stepfive">
                 <div>
-                    <h2>Stap 5: Gewonnen of verloren?</h2>
+                    <h2>Stap 5: Het toetsenbord</h2>
+                </div>
+            </a>
+        </article>
+        <article class="sidebar__item">
+            <a href="#stepsix">
+                <div>
+                    <h2>Stap 6: Gewonnen of verloren?</h2>
                 </div>
             </a>
         </article>
@@ -168,8 +175,6 @@
                         <ul>
                             <li>2.4 kopieer volgende css en plak die in de main.css</li>
                         </ul>
-
-
                     </div>
 
                     <ul>
@@ -177,7 +182,7 @@
                     </ul>
                 </article>
             </section>
-            <section class="conatainer__steps" id="stepthree">
+            <section class="container__steps" id="stepthree">
                 <article class="steps__item">
                     <div>
                         <h2>Stap 3 - JavaScript linken + data</h2>
@@ -188,20 +193,10 @@
                             <li>Nu is alles gelinkt met elkaar!</li>
                         </ul>
                     </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li>3.2 Nu alles gelinkt gaan we eerst een lijst maken met data. Die data zijn de hints en de woorden die we gebruiken om het spel te spelen. Dit doen we in het json bestand, dus je mag dat bestand openen en deze data toevoegen: </li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="YPPVgdd" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/YPPVgdd">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
+
                     <div>
                         <ul>
-                            <li>3.3 Vervolgens mag je dit toevoegen in je main.js. Dit is de start van het spel. Het toont meteen welke functies je allemaal zal nodig hebben om het spel te maken:</li>
+                            <li>3.2 Vervolgens mag je dit toevoegen in je main.js. Dit is de start van het spel en zorgt dat alles op het juiste moment gebeurt.</li>
                         </ul>
                         <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="QwwvXGL" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
                             <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/QwwvXGL">
@@ -210,17 +205,50 @@
                         </p>
                         <script async src="https://public.codepenassets.com/embed/index.js"></script>
                     </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>3.3 Nu maken we een lijst met data. Die data zijn de hints en de woorden die we gebruiken om het spel te spelen. Dit doen we in het json bestand, dus je mag dat bestand openen en deze data toevoegen: </li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="YPPVgdd" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/YPPVgdd">
+                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
                 </article>
-
             </section>
             <section class="container__steps" id="stepfour">
                 <article class="steps__item">
                     <div>
-                        <h2>Stap 4 - Het toetsenbord</h2>
+                        <h2>Stap 4 - Woorden ophalen en maken</h2>
                     </div>
                     <div class="steps__items--text">
                         <ul>
-                            <li>4.1 eerst zorgen we er dat het woord dat je geraden moet worden, gebouwd kan worden: voeg dit stukje code toe aan je main.js:</li>
+                            <li>4.1 Nu dat we onze data hebben moeten we de woordenlijst ophalen en ervoor zorgen dat we een random woord krijgen elke keer dat we het spel opnieuw spelen. Je mag beginnen met je main.js bestand weer te openen</li>
+                            <li>4.2 Als eerst maken we een functie die de woordenlijst ophaalt en een random woort terug geeft</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="MYYOBmZ" data-pen-title="fetchWordList" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/MYYOBmZ">
+                            fetchWordList</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>4.3 We moeten er ook voor zorgen dat het random woort uit de woordenlijst wordt gehaald. Dit doe je met volgende functie</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="vEEWaJy" data-pen-title="getRandomWord" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/vEEWaJy">
+                            getRandomWord</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>4.4 Nu zorgen we er voor dat het woord dat geraden moet worden, gebouwd wordt</li>
                         </ul>
                         <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="zxxwQjG" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
                             <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/zxxwQjG">
@@ -229,9 +257,16 @@
                         </p>
                         <script async src="https://public.codepenassets.com/embed/index.js"></script>
                     </div>
+                </article>
+            </section>
+            <section class="container__steps" id="stepfive">
+                <article class="steps__item">
+                    <div>
+                        <h2>Stap 5 - Het toetsenbord</h2>
+                    </div>
                     <div class="steps__items--text">
                         <ul>
-                            <li>4.2 Nu gaan we ervoor zorgen dat het toetsenbord werkt waardoor de letters gaan verschijnen op de streepjes, daarvoor mag je deze code code al kopieren en in je main.js bestand zetten.</li>
+                            <li>5.1 Nu gaan we ervoor zorgen dat het toetsenbord werkt. Deze functie zorgt ervoor dat je met je muis de toetsen kunt indrukken en je ook effectief je eigen toetsenbord kan gebruiken</li>
                         </ul>
                         <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="NPPjmMg" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
                             <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/NPPjmMg">
@@ -248,7 +283,7 @@
             <section class="container__steps" id="stepfive">
                 <article class="steps__item">
                     <div>
-                        <h2>Stap 5 - Gewonnen of verloren?</h2>
+                        <h2>Stap 6 - Gewonnen of verloren?</h2>
                     </div>
                     <div class="steps__items--text">
                         <ul>
@@ -256,7 +291,6 @@
                         </ul>
                     </div>
                 </article>
-
             </section>
         </section>
     </main>
