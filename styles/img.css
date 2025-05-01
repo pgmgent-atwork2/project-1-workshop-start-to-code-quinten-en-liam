@@ -2,5 +2,11 @@
     width: 37.5rem;
     height: 21.875rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 7px;
 }
+
+
+.cp_embed_wrapper {
+    width: 50rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
