@@ -14,7 +14,7 @@
         <article class="sidebar__item">
             <a href="#stepone">
                 <div class="sidebar__text">
-                    <h2>Stap 1: mappen en bestanden</h2>
+                    <h2>Stap 1: Mappen en bestanden</h2>
                 </div>
             </a>
         </article>
@@ -69,7 +69,7 @@
                     <div>
                         <h3>We gaan het spel hangman maken!</h3>
                         <p>Jullie zullen een klein proevertje krijgen van 1 van de oneindige mogelijkheden dat je kan doen als developer.</p>
-                        <p>We gebruiken in deze workshop de code-editor <a href="https://code.visualstudio.com/">Visual Studio Code.</a></p>
+                        <p>We gebruiken in deze workshop de code-editor <a class="link__tutorial" href="https://code.visualstudio.com/">Visual Studio Code.</a></p>
                         <p>We gaan gebruik maken van volgende codetalen:
                             <ul>
                                 <li>JavaScript</li>
@@ -85,12 +85,17 @@
             <section class="container__steps" id="stepone">
                 <article class="steps__item">
                     <div>
-                        <h2>Stap 1 - mappen en bestanden</h2>
+                        <h2>Stap 1 - Mappen en bestanden</h2>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>1.1 download <a href="hangman_svg's.zip" download class="link__tutorial"> hier</a> alle hangman svg's</li>
+                        </ul>
                     </div>
                     <div class="steps__items--text">
                         <div>
                             <ul>
-                                <li>1.1 Maak een nieuwe map aan en geef als naam hangman</li>
+                                <li>1.2 Maak een nieuwe map aan en geef als naam hangman</li>
                             </ul>
                         </div>
                         <div>
@@ -100,7 +105,7 @@
                     <div class="steps__items--text">
                         <div>
                             <ul>
-                                <li>1.2 Open het programma <a href="https://code.visualstudio.com/">Visual Studio Code</a> en open de folder die je zonet hebt gemaakt</li>
+                                <li>1.3 Open het programma <a href="https://code.visualstudio.com/" class="link__tutorial">Visual Studio Code</a> en open de folder die je zonet hebt gemaakt</li>
                             </ul>
                         </div>
                         <div>
@@ -110,7 +115,7 @@
                     <div class="steps__items--text">
                         <div>
                             <ul>
-                                <li>1.3 Maak de volgende folderstructuur</li>
+                                <li>1.4 Maak de volgende folderstructuur</li>
                             </ul>
                         </div>
                         <div>
@@ -118,9 +123,17 @@
                         </div>
                     </div>
                     <div class="steps__items--text">
+                        <ul>
+                            <li>1.5 pak het zip bestand uit en sleep de hangman svg's naar de images map</li>
+                        </ul>
+                        <div>
+                            <img src="images/folder-structure-hangman.png" alt="screenshot van de folderstructuur met de hangman svg's">
+                        </div>
+                    </div>
+                    <div class="steps__items--text">
                         <div>
                             <ul>
-                                <li>1.4 Installeer de liveserver extensie zodat je html files kunt bekijken in de browser</li>
+                                <li>1.6 Installeer de liveserver extensie zodat je html files kunt bekijken in de browser</li>
                             </ul>
                         </div>
                         <div>
@@ -131,7 +144,7 @@
                         </div>
                     <div class="steps__items--text">
                         <ul>
-                            <li>1.5 druk met een rechter muisklik op de index.html en druk op open with liveserver, zo wordt je standaard browser gestart en zal je een blanco pagina zien verschijnen!</li>
+                            <li>1.7 druk met een rechter muisklik op de index.html en druk op open with liveserver, zo wordt je standaard browser gestart en zal je een blanco pagina zien verschijnen!</li>
                         </ul>
                         <div>
                         <img src="./images/start-met-liveserver.png" alt="">
@@ -274,20 +287,138 @@
                             on <a href="https://codepen.io">CodePen</a>.</span>
                         </p>
                         <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
                         <ul>
-                            <li>Deze functies zeggen eigenlijk hoe het toetsenbord moet werken, dus het kijkt naar de juistheid, het woord wordt ook ingevuld, fouten worden geteld en of het spel eventueel wordt beïndigd en ook wordt het figuurtje getekent.</li>
+                            <li>5.2 Nu het toetsenbord werkt moeten we ervoor zorgen dat het programma weet wanneer een letter wel of niet overeenkomt met het gezochte woord en dat je maar 6 kansen krijgt om het te raden. Dit doe je met volgende functie</li>
                         </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="oggoMJY" data-pen-title="handleGuess" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/oggoMJY">
+                            handleGuess</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>5.3 Nu zorgen we ervoor dat:
+                                <ul>
+                                    <li>alle juiste letters getoont worden in het woord</li>
+                                    <li>als je een letter raadt die vaker voorkomt, het spel het dan gelijk toont</li>
+                                    <li>wanneer je een toets hebt ingedrukt, deze uitgeschakeld wordt</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="NPPwBQE" data-pen-title="addWordToList" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/NPPwBQE">
+                            addWordToList</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>5.4 Voor dat de functie die we net gemaakt hebben helemaal werkt heb je nog een aantal functies nodig namelijk: 
+                                <ul>
+                                    <li>Een functie die checkt of de ingevoerde letter in het woord zit</li>
+                                    <li>Een functie checkt of een letter meerdere keren in het woord voorkomt</li>
+                                    <li>Een functie die de woorden in letters splitst</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="qEEVQXd" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQXd">
+                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>5.5 Er moet ook gecontroleerd worden of de speler het hele woord correct heeft geraden</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="EaabOyz" data-pen-title="checkWin" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/EaabOyz">
+                            checkWin</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>5.6 Natuurlijk willen we ook dat bij elke fout dat gemaakt wordt de tekening van de hangman wordt verder getekend, dit doe je door deze functie te implementeren:</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="GggOwyE" data-pen-title="drawHangman" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/GggOwyE">
+                            drawHangman</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>5.7 En dan tot slot om het spel echt te laten starten moet je de start functie (initGame) nog eens aanroepen, dus dan mag je dit helemaal onderaan je pagina zetten:</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="qEEVQGa" data-pen-title="game start" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQGa">
+                            game start</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
                     </div>
                 </article>
             </section>
-            <section class="container__steps" id="stepfive">
+            <section class="container__steps" id="stepsix">
                 <article class="steps__item">
                     <div>
                         <h2>Stap 6 - Gewonnen of verloren?</h2>
                     </div>
                     <div class="steps__items--text">
                         <ul>
-                            <li></li>
+                            <li>Nu de game zo goed als volledig af is gaan we er nog voor zorgen dat: 
+                                <ul>
+                                    <li>er een popup opkomt wanneer je verloren bent</li>
+                                    <li>er een popup op komt wanneer je gewonnen bent</li>
+                                    <li>de game gereset wordt</li>
+                                </ul>
+                            </li>
+                            <li>De style die je te zien gaat krijgen is de css die je al meekreeg in vorige stappen (wie nieuwschierig is kan al eens in het document main.css gaan en eens kleuren veranderen)</li>
+                        </ul>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>6.1 De popup die opkomt wanneer je verloren bent:</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="emmeQQq" data-pen-title="gameOver" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/emmeQQq">
+                            gameOver</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>6.2 De popup die opkomt wanneer je gewonnen bent:</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="xbbPQMZ" data-pen-title="gameWin" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/xbbPQMZ">
+                            gameWin</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                    </div>
+                    <div class="steps__items--text">
+                        <ul>
+                            <li>6.3 De functie voor de game te herstarten:</li>
+                        </ul>
+                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="raaYQRB" data-pen-title="resetGame" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/raaYQRB">
+                            resetGame</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
+                            on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+                        <ul>
+                            <li>Nu ben je volledig klaar en ready to play!</li>
                         </ul>
                     </div>
                 </article>
