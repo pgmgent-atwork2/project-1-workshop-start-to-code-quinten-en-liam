@@ -24,3 +24,24 @@
     transition: color 0.3s ease-in-out;
   }
 }
+
+.link__tutorial {
+  text-decoration: none;
+  color: var(--primary);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.125rem;
+    width: 0%;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
