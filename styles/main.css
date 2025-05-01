@@ -10,6 +10,7 @@
 @import url("./keyboard.css");
 @import url("./hangman.css");
 @import url("./link.css");
+@import url("./img.css");
 
 html {
   scroll-behavior: smooth;

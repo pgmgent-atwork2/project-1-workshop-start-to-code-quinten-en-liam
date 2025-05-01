@@ -6,10 +6,6 @@
     padding-inline: 5rem;
 }
 
-.steps__items--text img {
-    padding-left: 6rem;
-}
-
 .steps__items--text {
     display: flex;
     flex-direction: column;
