@@ -39,3 +39,10 @@
     color: #8a8aec;
     padding: 0.1rem;
   }
+
+  .container__content__footer {
+    font-size: 2rem;
+    padding-left: 3rem;
+    color: var(--primary);
+    font-family: "Winky Rough", sans-serif;
+  }
