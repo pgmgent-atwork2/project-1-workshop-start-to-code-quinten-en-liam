@@ -4,6 +4,14 @@
     align-items: flex-start;
     gap: 2rem;
     padding-inline: 9rem;
+
+    & li {
+        color: var(--primary);
+    }
+
+    & p {
+        color: var(--primary);
+    }
 }
 
 .steps__items--text {
@@ -15,3 +23,19 @@
 .container__steps {
     padding: 2rem;
 }
+
+.steps__item__title {
+    color: var(--primary);
+}
+
+
+.bold-number {
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .file__text--style {
+    background-color: #403f3f;
+    color: #8a8aec;
+    padding: 0.1rem;
+  }
