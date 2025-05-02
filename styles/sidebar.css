@@ -6,6 +6,7 @@
   width: auto;
   background-color: var(--secondary);
   height: 100vh;
+  padding-top: 4rem;
 }
 
 .sidebar__item {
