@@ -1,0 +1,23 @@
+.warning{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: var(--warning-foreground);
+    border: 2px solid var(--warning);
+    border-radius: var(--radius);
+    padding: 1rem;
+    max-width: 400px;
+
+    .warning__icon{
+        width: 4rem;
+        height: 4rem;
+        color: var(--warning);
+    }
+
+    .warning__text{
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--warning);
+    }
+}

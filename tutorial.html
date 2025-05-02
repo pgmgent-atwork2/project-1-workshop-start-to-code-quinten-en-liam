@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="menu" class="menu">Menu 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+    <div id="menu" class="menu"> 
+        <svg class="menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
             <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
               <animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" />
               <animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" />
@@ -161,6 +161,13 @@
                             <img src="./images/liveserver.png" alt="screenhot van de liveserver extensie installatie" class="tutorial__image">
                         </div>
                     <div class="steps__items--text">
+                        <div class="warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="warning__icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                              </svg>
+                              
+                            <p class="warning__text">Als liveserver niet gebruikt kan dit later problemen veroorzaken!</p>
+                        </div>
                         <ul>
                             <li><span class="bold-number">1.7</span> druk met een rechter muisklik op de <span class="file__text--style">index.html</span> en druk op open with liveserver, zo wordt je standaard browser gestart en zal je een blanco pagina zien verschijnen!</li>
                         </ul>
@@ -230,9 +237,17 @@
                                     <li>Voor je <span class="file__text--style">main.js</span> bestand te linken schrijf je net boven de body tag helemaal vanonder het bestand <span class="file__text--style">index.html</span> dit: <br><span class="file__text--style">&lt;script type="module" src="./scripts/main.js"&gt;&lt;/script&gt;</span></li>
                                     <li>Voor je <span class="file__text--style">main.css</span> bestand te linken schrijf je net boven de title tag dit: <br> <span class="file__text--style">&lt;link rel="stylesheet" href="./styles/main.css"&gt;</span></li>
                                 </ul>
+                                <p class="codepen" data-height="300" data-default-tab="html" data-slug-hash="bNNLOev" data-pen-title="Untitled" data-user="Quintenntje" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                                    <span>See the Pen <a href="https://codepen.io/Quintenntje/pen/bNNLOev">
+                                    Untitled</a> by Quinten (<a href="https://codepen.io/Quintenntje">@Quintenntje</a>)
+                                    on <a href="https://codepen.io">CodePen</a>.</span>
+                                  </p>
+                                  <script async src="https://public.codepenassets.com/embed/index.js"></script>
                         </li>
                             <li>Nu is alles gelinkt met elkaar!</li>
                         </ul>
+
+                        
                     </div>
 
                     <div>

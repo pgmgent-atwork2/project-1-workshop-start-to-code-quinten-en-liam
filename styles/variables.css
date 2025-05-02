@@ -19,4 +19,7 @@
   --input: hsl(240, 5.9%, 90%);
   --ring: hsl(346.8, 77.2%, 49.8%);
   --radius: 0.5rem;
+
+  --warning: hsl(33, 100%, 50%);
+  --warning-foreground: hsl(35, 100%, 95%);
 }
