@@ -1,0 +1,23 @@
+.tip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: var(--tip-foreground);
+    border: 2px solid var(--tip);
+    border-radius: var(--radius);
+    padding: 1rem;
+    max-width: 400px;
+
+    .tip__icon{
+        width: 3rem;
+        height: 3rem;
+        color: var(--tip);
+    }
+
+    .tip__text{
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--tip);
+    }
+}
