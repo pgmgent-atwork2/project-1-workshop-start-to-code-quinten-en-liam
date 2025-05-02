@@ -11,6 +11,8 @@
 @import url("./hangman.css");
 @import url("./link.css");
 @import url("./img.css");
+@import url("./menu.css");
+
 
 html {
   scroll-behavior: smooth;
@@ -47,6 +49,7 @@ html {
   justify-content: center;
   height: 100vh;
   gap: 2rem;
+  font-family: "Winky Rough", sans-serif;
 }
 
 .go-back {

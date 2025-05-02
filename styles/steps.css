@@ -1,48 +1,50 @@
 .steps__item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  & li {
+    color: var(--primary);
+  }
+
+  & p {
+    color: var(--primary);
+  }
+
+  @media screen and (min-width: 768px) {
     padding-inline: 9rem;
-
-    & li {
-        color: var(--primary);
-    }
-
-    & p {
-        color: var(--primary);
-    }
+  }
 }
 
 .steps__items--text {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .container__steps {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .steps__item__title {
-    color: var(--primary);
+  color: var(--primary);
 }
 
-
 .bold-number {
-    font-weight: 800;
-    color: var(--primary);
-  }
+  font-weight: 800;
+  color: var(--primary);
+}
 
-  .file__text--style {
-    background-color: #403f3f;
-    color: #c1c1ff;
-    padding: 0.1rem;
-  }
+.file__text--style {
+  background-color: #403f3f;
+  color: #c1c1ff;
+  padding: 0.1rem;
+}
 
-  .container__content__footer {
-    font-size: 2rem;
-    padding-left: 3.5rem;
-    color: var(--primary);
-    font-family: "Winky Rough", sans-serif;
-  }
+.container__content__footer {
+  font-size: 2rem;
+  padding-left: 3.5rem;
+  color: var(--primary);
+  font-family: "Winky Rough", sans-serif;
+}

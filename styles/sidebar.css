@@ -6,6 +6,18 @@
   width: auto;
   background-color: var(--secondary);
   height: 100vh;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(0);
+  }
+
+
+  &.open{
+    transform: translateX(0);
+  }
 }
 
 .sidebar__item {
@@ -13,8 +25,7 @@
   margin: 1rem;
   border-radius: var(--radius);
 
-
-  & h2{
+  & h2 {
     font-size: 1.125rem;
   }
 

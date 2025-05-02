@@ -2,6 +2,9 @@
  background: var(--primary-foreground);
 }
 
-.container__content {
-  margin-left: 15rem;
+
+@media screen and (min-width: 768px) {
+  .container__content {
+    margin-left: 15rem;
+  }
 }

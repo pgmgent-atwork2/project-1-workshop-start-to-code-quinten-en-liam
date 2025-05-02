@@ -1,0 +1,18 @@
+.menu {
+  display: flex;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 1rem;
+  border-radius: 99%;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
