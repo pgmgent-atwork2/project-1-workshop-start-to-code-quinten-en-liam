@@ -10,8 +10,10 @@
     max-width: 400px;
 
     .warning__icon{
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
+        min-width: 2rem;
+        min-height: 2rem;
         color: var(--warning);
     }
 

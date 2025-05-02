@@ -1,539 +1,1423 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutorial Hangman</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="menu" class="menu"> 
-        <svg class="menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" stroke="#eee" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
-            <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
-              <animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" />
-              <animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" />
-            </path>
-            <rect width="10" height="10" stroke="none">
-              <animate dur="2s" id="reverse" attributeName="width" begin="click" />
-            </rect>
-            <rect width="10" height="10" stroke="none">
-              <animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" />
-              <animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" />
-            </rect>
-          </svg>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="menu" class="menu">
+      <svg
+        class="menu__icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 10 10"
+        stroke="#eee"
+        stroke-width=".6"
+        fill="rgba(0,0,0,0)"
+        stroke-linecap="round"
+        style="cursor: pointer"
+      >
+        <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+          <animate
+            dur="0.2s"
+            attributeName="d"
+            values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7"
+            fill="freeze"
+            begin="start.begin"
+          />
+          <animate
+            dur="0.2s"
+            attributeName="d"
+            values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"
+            fill="freeze"
+            begin="reverse.begin"
+          />
+        </path>
+        <rect width="10" height="10" stroke="none">
+          <animate dur="2s" id="reverse" attributeName="width" begin="click" />
+        </rect>
+        <rect width="10" height="10" stroke="none">
+          <animate
+            dur="0.001s"
+            id="start"
+            attributeName="width"
+            values="10;0"
+            fill="freeze"
+            begin="click"
+          />
+          <animate
+            dur="0.001s"
+            attributeName="width"
+            values="0;10"
+            fill="freeze"
+            begin="reverse.begin"
+          />
+        </rect>
+      </svg>
     </div>
     <aside id="nav" class="sidebar">
-        <article class="sidebar__item">
-            <a href="#stepone">
-                <div class="sidebar__text">
-                    <h2>Stap 1: Mappen en bestanden</h2>
-                </div>
-            </a>
-        </article>
-        <article class="sidebar__item">
-            <a href="#steptwo">
-                <div class="sidebar__text">
-                    <h2>Stap 2: HTML en CSS</h2>
-                </div>
-            </a>
-        </article>
-        <article class="sidebar__item">
-            <a href="#stepthree">
-                <div>
-                    <h2>Stap 3: JavaScript linken + data</h2>
-                </div>
-            </a>
-        </article>
-        <article class="sidebar__item">
-            <a href="#stepfour">
-                <div>
-                    <h2>Stap 4: Woorden ophalen en maken</h2>
-                </div>
-            </a>
-        </article>
-        <article class="sidebar__item">
-            <a href="#stepfive">
-                <div>
-                    <h2>Stap 5: Het toetsenbord</h2>
-                </div>
-            </a>
-        </article>
-        <article class="sidebar__item">
-            <a href="#stepsix">
-                <div>
-                    <h2>Stap 6: Gewonnen of verloren?</h2>
-                </div>
-            </a>
-        </article>
+      <article class="sidebar__item">
+        <a href="#stepone">
+          <div class="sidebar__text">
+            <h2>Stap 1: Mappen en bestanden</h2>
+          </div>
+        </a>
+      </article>
+      <article class="sidebar__item">
+        <a href="#steptwo">
+          <div class="sidebar__text">
+            <h2>Stap 2: HTML en CSS</h2>
+          </div>
+        </a>
+      </article>
+      <article class="sidebar__item">
+        <a href="#stepthree">
+          <div>
+            <h2>Stap 3: JavaScript linken + data</h2>
+          </div>
+        </a>
+      </article>
+      <article class="sidebar__item">
+        <a href="#stepfour">
+          <div>
+            <h2>Stap 4: Woorden ophalen en maken</h2>
+          </div>
+        </a>
+      </article>
+      <article class="sidebar__item">
+        <a href="#stepfive">
+          <div>
+            <h2>Stap 5: Het toetsenbord</h2>
+          </div>
+        </a>
+      </article>
+      <article class="sidebar__item">
+        <a href="#stepsix">
+          <div>
+            <h2>Stap 6: Gewonnen of verloren?</h2>
+          </div>
+        </a>
+      </article>
     </aside>
     <header class="container__header">
-        <div>
-            <h1>Welkom bij de hangman tutorial</h1>
-        </div>
-        <div>
-            <p>In deze tutorial leer je hoe je een hangman spel maakt met HTML, CSS en JavaScript.</p>
-        </div>
+      <div>
+        <h1>Welkom bij de hangman tutorial</h1>
+      </div>
+      <div>
+        <p>
+          In deze tutorial leer je hoe je een hangman spel maakt met HTML, CSS
+          en JavaScript.
+        </p>
+      </div>
 
-        <div class="header__back">
-            <a class="link" href="./index.html"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 19.5 8.25 12l7.5-7.5"
-              />
-            </svg>
-            Terug naar hoofdmenu</a
+      <div class="header__back">
+        <a class="link" href="./index.html"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
           >
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
+          Terug naar hoofdmenu</a
+        >
+      </div>
     </header>
     <main class="container__main">
-
-        <section class="container__content">
-            <section class="intro">
-                    <div class="intro__text">
-                        <div>
-                            <h3>We gaan het spel hangman maken!</h3>
-                        </div>
-                        <div>
-                            <p>Jullie zullen een klein proevertje krijgen van 1 van de oneindige mogelijkheden dat je kan doen als developer.</p>
-                        </div>
-                        <div>
-                            <p>We gebruiken in deze workshop de code-editor <a class="link__tutorial" href="https://code.visualstudio.com/">Visual Studio Code.</a></p>
-                            <p>We gaan gebruik maken van volgende codetalen:
-                                <ul>
-                                    <li>JavaScript</li>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="images/hangman-screenshot-game.png" alt="foto van het hangman spel" class="tutorial__image">
-                    </div>
-            </section>
-            <section class="container__steps" id="stepone">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 1 - Mappen en bestanden</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">1.1</span> Download <a href="hangman_svg's.zip" download class="link__tutorial"> hier</a> alle hangman svg's</li>
-                        </ul>
-                    </div>
-                    <div class="steps__items--text">
-                        <div>
-                            <ul>
-                                <li><span class="bold-number">1.2</span> Maak een nieuwe map aan en geef als naam hangman</li>
-                            </ul>
-                        </div>
-                        <div class="wrapper__image">
-                            <img src="images/map-hangman.png" alt="screenshot map hangman" class="tutorial__image">
-                        </div>
-                    </div>
-                    <div class="steps__items--text">
-                        <div>
-                            <ul>
-                                <li><span class="bold-number">1.3</span> Open het programma <a href="https://code.visualstudio.com/" class="link__tutorial">Visual Studio Code</a> en open de folder die je zonet hebt gemaakt</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="images/choose-map.png" alt="screenshot van het kiezen van de map in Visual Studio Code" class="tutorial__image">
-                        </div>
-                    </div>
-                    <div class="steps__items--text">
-                        <div>
-                            <ul>
-                                <li><span class="bold-number">1.4</span> Maak de volgende folderstructuur</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="images/folder-structure.png" alt="screenhot van de folderstructuur" class="tutorial__image">
-                        </div>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">1.5</span> Pak het zip bestand uit en sleep de hangman svg's naar de images map</li>
-                        </ul>
-                        <div>
-                            <img src="images/folder-structure-hangman-svg's.png" alt="screenshot van de folderstructuur met de hangman svg's" class="tutorial__image">
-                        </div>
-                    </div>
-                    <div class="steps__items--text">
-                        <div>
-                            <ul>
-                                <li><span class="bold-number">1.6</span> Installeer de liveserver extensie zodat je html files kunt bekijken in de browser</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="./images/liveserver.png" alt="screenhot van de liveserver extensie installatie" class="tutorial__image">
-                        </div>
-                    <div class="steps__items--text">
-                        <div class="warning">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="warning__icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                              </svg>
-                              
-                            <p class="warning__text">Als liveserver niet gebruikt kan dit later problemen veroorzaken!</p>
-                        </div>
-                        <ul>
-                            <li><span class="bold-number">1.7</span> druk met een rechter muisklik op de <span class="file__text--style">index.html</span> en druk op open with liveserver, zo wordt je standaard browser gestart en zal je een blanco pagina zien verschijnen!</li>
-                        </ul>
-                        <div>
-                        <img src="./images/start-met-liveserver.png" alt="" class="tutorial__image">
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <section class="container__steps" id="steptwo">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 2 - HTML en CSS</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <p>Nu is het echt tijd om te coderen!</p>
-                        <ul>
-                            <li><span class="bold-number">2.1</span> Kopieer volgende html en plak die in de <span class="file__text--style">index.html</span></li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="html" data-slug-hash="azzWaYX" data-pen-title="Html galgje - 1" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/azzWaYX">
-                            Html galgje - 1</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                        <ul>
-                            <li>Nu kunnen we code toevoegen binnen de body tag, alles wat in de body tag staat ga je visueel zien op je webpagina</li>
-                        </ul>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">2.2</span> In deze stap gaan we het visuele toetsenbord maken en zo ook de bij horende tekst, de svg files (de afbeeldingen) en de plaats waar het woord op gaat komen. voeg dit stukje code toe binnen de body tag:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="html" data-slug-hash="bNNWZey" data-pen-title="Hangman - 2" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/bNNWZey">
-                            Hangman - 2</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">2.3</span> Voor het stylen gebruiken we dus css, we werken hiervoor in het <span class="file__text--style">main.css</span> bestand. we stylen volgende elementen: 
-                                <ul>
-                                    <li>De hangman (het figuurtje)</li>
-                                    <li>Het modal</li>
-                                    <li>Het toetsenbord</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li><span class="bold-number">2.4</span> De volgende code maakt de hangman visueel aantrekkelijker</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="MYYrZRK" data-pen-title="css" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/MYYrZRK">
-                            css</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                        <ul>
-                            <li><span class="bold-number">2.5</span> De volgende code is voor het modal</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="LEEQMQb" data-pen-title="css modal" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/LEEQMQb">
-                            css modal</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                        <ul>
-                            <li><span class="bold-number">2.6</span> De volgende is voor het toetsenbord</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="css" data-slug-hash="PwwQXRR" data-pen-title="css keyboard" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/PwwQXRR">
-                            css keyboard</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <ul>
-                        <li>Nu hebben we alle basiscode zodat we een goede look & feel krijgen!</li>
-                    </ul>
-                </article>
-            </section>
-            <section class="container__steps" id="stepthree">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 3 - JavaScript linken + data</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">3.1</span> We moeten eerst de link leggen tussen JavaScript, html en css. Dit doe je door dit stukje code toe te voegen: 
-                                <ul>
-                                    <li>Voor je <span class="file__text--style">main.js</span> bestand te linken schrijf je net boven de body tag helemaal vanonder het bestand <span class="file__text--style">index.html</span> dit: <br><span class="file__text--style">&lt;script type="module" src="./scripts/main.js"&gt;&lt;/script&gt;</span></li>
-                                    <li>Voor je <span class="file__text--style">main.css</span> bestand te linken schrijf je net boven de title tag dit: <br> <span class="file__text--style">&lt;link rel="stylesheet" href="./styles/main.css"&gt;</span></li>
-                                </ul>
-                                <p class="codepen" data-height="300" data-default-tab="html" data-slug-hash="bNNLOev" data-pen-title="Untitled" data-user="Quintenntje" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                                    <span>See the Pen <a href="https://codepen.io/Quintenntje/pen/bNNLOev">
-                                    Untitled</a> by Quinten (<a href="https://codepen.io/Quintenntje">@Quintenntje</a>)
-                                    on <a href="https://codepen.io">CodePen</a>.</span>
-                                  </p>
-                                  <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                        </li>
-                            <li>Nu is alles gelinkt met elkaar!</li>
-                        </ul>
-
-                        
-                    </div>
-
-                    <div>
-                        <ul>
-                            <li><span class="bold-number">3.2</span> Vervolgens mag je dit toevoegen in je <span class="file__text--style">main.js</span>. Dit is de start van het spel en zorgt dat alles op het juiste moment gebeurt.</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="QwwvXGL" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/QwwvXGL">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">3.3</span> Nu maken we een lijst met data. Die data zijn de hints en de woorden die we gebruiken om het spel te spelen. Dit doen we in het json bestand, dus je mag dat bestand openen en deze data toevoegen: </li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="YPPVgdd" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/YPPVgdd">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                </article>
-            </section>
-            <section class="container__steps" id="stepfour">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 4 - Woorden ophalen en maken</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">4.1</span> Nu dat we onze data hebben moeten we de woordenlijst ophalen en ervoor zorgen dat we een random woord krijgen elke keer dat we het spel opnieuw spelen. Je mag beginnen met je <span class="file__text--style">main.js</span> bestand weer te openen</li>
-                            <li><span class="bold-number">4.2</span> Als eerst maken we een functie die de woordenlijst ophaalt en een random woort terug geeft</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="MYYOBmZ" data-pen-title="fetchWordList" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/MYYOBmZ">
-                            fetchWordList</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">4.3</span> We moeten er ook voor zorgen dat het random woort uit de woordenlijst wordt gehaald. Dit doe je met volgende functie</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="vEEWaJy" data-pen-title="getRandomWord" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/vEEWaJy">
-                            getRandomWord</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">4.4</span> Nu zorgen we er voor dat het woord dat geraden moet worden, gebouwd wordt</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="zxxwQjG" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/zxxwQjG">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                </article>
-            </section>
-            <section class="container__steps" id="stepfive">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 5 - Het toetsenbord</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.1</span> Nu gaan we ervoor zorgen dat het toetsenbord werkt. Deze functie zorgt ervoor dat je met je muis de toetsen kunt indrukken en je ook effectief je eigen toetsenbord kan gebruiken</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="NPPjmMg" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/NPPjmMg">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.2</span> Nu het toetsenbord werkt moeten we ervoor zorgen dat het programma weet wanneer een letter wel of niet overeenkomt met het gezochte woord en dat je maar 6 kansen krijgt om het te raden. Dit doe je met volgende functie</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="oggoMJY" data-pen-title="handleGuess" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/oggoMJY">
-                            handleGuess</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.3</span> Nu zorgen we ervoor dat:
-                                <ul>
-                                    <li>alle juiste letters getoont worden in het woord</li>
-                                    <li>als je een letter raadt die vaker voorkomt, het spel het dan gelijk toont</li>
-                                    <li>wanneer je een toets hebt ingedrukt, deze uitgeschakeld wordt</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="NPPwBQE" data-pen-title="addWordToList" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/NPPwBQE">
-                            addWordToList</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.4</span> Voor dat de functie die we net gemaakt hebben helemaal werkt heb je nog een aantal functies nodig namelijk: 
-                                <ul>
-                                    <li>Een functie die checkt of de ingevoerde letter in het woord zit</li>
-                                    <li>Een functie checkt of een letter meerdere keren in het woord voorkomt</li>
-                                    <li>Een functie die de woorden in letters splitst</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="qEEVQXd" data-pen-title="Untitled" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQXd">
-                            Untitled</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.5</span> Er moet ook gecontroleerd worden of de speler het hele woord correct heeft geraden</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="EaabOyz" data-pen-title="checkWin" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/EaabOyz">
-                            checkWin</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">5.6</span> Natuurlijk willen we ook dat bij elke fout dat gemaakt wordt de tekening van de hangman wordt verder getekend, dit doe je door deze functie te implementeren:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="GggOwyE" data-pen-title="drawHangman" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/GggOwyE">
-                            drawHangman</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div>
-                        <ul>
-                            <li><span class="bold-number">5.7</span> En dan tot slot om het spel echt te laten starten moet je de start functie (initGame) nog eens aanroepen, dus dan mag je dit helemaal onderaan je pagina zetten:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="qEEVQGa" data-pen-title="game start" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQGa">
-                            game start</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                </article>
-            </section>
-            <section class="container__steps" id="stepsix">
-                <article class="steps__item">
-                    <div class="steps__item__title">
-                        <h2>Stap 6 - Gewonnen of verloren?</h2>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li>Nu de game zo goed als volledig af is gaan we er nog voor zorgen dat: 
-                                <ul>
-                                    <li>er een popup opkomt wanneer je verloren bent</li>
-                                    <li>er een popup op komt wanneer je gewonnen bent</li>
-                                    <li>de game gereset wordt</li>
-                                </ul>
-                            </li>
-                            <li>De style die je te zien gaat krijgen is de css die je al meekreeg in vorige stappen (wie nieuwschierig is kan al eens in het document <span class="file__text--style">main.css</span> gaan en eens kleuren veranderen)</li>
-                        </ul>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">6.1</span> De popup die opkomt wanneer je verloren bent:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="emmeQQq" data-pen-title="gameOver" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/emmeQQq">
-                            gameOver</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                          </p>
-                          <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">6.2</span> De popup die opkomt wanneer je gewonnen bent:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="xbbPQMZ" data-pen-title="gameWin" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/xbbPQMZ">
-                            gameWin</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <ul>
-                            <li><span class="bold-number">6.3</span> De functie voor de game te herstarten:</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="raaYQRB" data-pen-title="resetGame" data-user="Liam-Schellinck" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Liam-Schellinck/pen/raaYQRB">
-                            resetGame</a> by Liam Schellinck (<a href="https://codepen.io/Liam-Schellinck">@Liam-Schellinck</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                        </p>
-                        <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="steps__items--text">
-                        <div class="tip">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tip__icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                              </svg>
-                              
-                              
-                            <p class="tip__text">Je kunt de tabs gebruiken om de HTML, CSS, JS code te zien.</p>
-                        </div>
-                        <ul>
-                            <li><span class="bold-number">6.4</span> Alle code (HTML, CSS, JS):</li>
-                        </ul>
-                        <p class="codepen" data-height="300" data-default-tab="html" data-slug-hash="YPPeBXa" data-pen-title="Full code" data-user="Quintenntje" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                            <span>See the Pen <a href="https://codepen.io/Quintenntje/pen/YPPeBXa">
-                            Full code</a> by Quinten (<a href="https://codepen.io/Quintenntje">@Quintenntje</a>)
-                            on <a href="https://codepen.io">CodePen</a>.</span>
-                          </p>
-                          <script async src="https://public.codepenassets.com/embed/index.js"></script>
-                    </div>
-                    <div class="container__content__footer">
-                        <h3>Nu ben je volledig klaar en ready to play!</h3>
-                    </div>
-                </article>
-            </section>
+      <section class="container__content">
+        <section class="intro">
+          <div class="intro__text">
+            <div>
+              <h3>We gaan het spel hangman maken!</h3>
+            </div>
+            <div>
+              <p>
+                Jullie zullen een klein proevertje krijgen van 1 van de
+                oneindige mogelijkheden dat je kan doen als developer.
+              </p>
+            </div>
+            <div>
+              <p>
+                We gebruiken in deze workshop de code-editor
+                <a class="link__tutorial" href="https://code.visualstudio.com/"
+                  >Visual Studio Code.</a
+                >
+              </p>
+              <p>We gaan gebruik maken van volgende codetalen:</p>
+              <ul>
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img
+              src="images/hangman-screenshot-game.png"
+              alt="foto van het hangman spel"
+              class="tutorial__image"
+            />
+          </div>
         </section>
+        <section class="container__steps" id="stepone">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 1 - Mappen en bestanden</h2>
+            </div>
+            <div class="steps__items--text">
+              <div class="tip">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tip__icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                  />
+                </svg>
+
+                <p class="tip__text">
+                  SVG (Scalable Vector Graphics) is een vectorafbeeldingsformaat
+                  dat wordt gebruikt voor het weergeven van tweedimensionale
+                  vectorafbeeldingen. SVG-bestanden zijn schaalbaar, ze kunnen
+                  worden vergroot of verkleind zonder kwaliteitsverlies.
+                </p>
+              </div>
+              <ul>
+                <li>
+                  <span class="bold-number">1.1</span> Download
+                  <a href="hangman_svg's.zip" download class="link__tutorial"
+                    >hier</a
+                  >
+                  alle hangman svg's
+                </li>
+              </ul>
+            </div>
+            <div class="steps__items--text">
+              <div>
+                <ul>
+                  <li>
+                    <span class="bold-number">1.2</span> Maak een nieuwe map aan
+                    en geef als naam hangman
+                  </li>
+                </ul>
+              </div>
+              <div class="wrapper__image">
+                <img
+                  src="images/map-hangman.png"
+                  alt="screenshot map hangman"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+            <div class="steps__items--text">
+              <div>
+                <ul>
+                  <li>
+                    <span class="bold-number">1.3</span> Open het programma
+                    <a
+                      href="https://code.visualstudio.com/"
+                      class="link__tutorial"
+                      >Visual Studio Code</a
+                    >
+                    en open de folder die je zonet hebt gemaakt
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <img
+                  src="images/choose-map.png"
+                  alt="screenshot van het kiezen van de map in Visual Studio Code"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+            <div class="steps__items--text">
+              <div>
+                <ul>
+                  <li>
+                    <span class="bold-number">1.4</span> Maak de volgende
+                    folderstructuur
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <img
+                  src="images/folder-structure.png"
+                  alt="screenshot van de folderstructuur"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">1.5</span> Pak het zip bestand uit
+                  en sleep de hangman svg's naar de images map
+                </li>
+              </ul>
+              <div>
+                <img
+                  src="images/folder-structure-hangman-svg's.png"
+                  alt="screenshot van de folderstructuur met de hangman svg's"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+            <div class="steps__items--text">
+              <div>
+                <ul>
+                  <li>
+                    <span class="bold-number">1.6</span> Installeer de
+                    liveserver extensie zodat je html files kunt bekijken in de
+                    browser
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <img
+                  src="./images/liveserver.png"
+                  alt="screenshot van de liveserver extensie installatie"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+            <div class="steps__items--text">
+              <div class="warning">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="warning__icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                  />
+                </svg>
+                <p class="warning__text">
+                  Als liveserver niet gebruikt wordt, kan dit later problemen
+                  veroorzaken!
+                </p>
+              </div>
+              <ul>
+                <li>
+                  <span class="bold-number">1.7</span> Druk met een rechter
+                  muisklik op de
+                  <span class="file__text--style">index.html</span> en druk op
+                  "Open with Live Server". Zo wordt je standaard browser gestart
+                  en zal je een blanco pagina zien verschijnen!
+                </li>
+              </ul>
+              <div>
+                <img
+                  src="./images/start-met-liveserver.png"
+                  alt="screenshot van het starten met Live Server"
+                  class="tutorial__image"
+                />
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="container__steps" id="steptwo">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 2 - HTML en CSS</h2>
+            </div>
+            <div class="steps__items--text">
+              <p>Nu is het echt tijd om te coderen!</p>
+              <ul>
+                <li>
+                  <span class="bold-number">2.1</span> Kopieer volgende html en
+                  plak die in de
+                  <span class="file__text--style">index.html</span>
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="html"
+                data-slug-hash="azzWaYX"
+                data-pen-title="Html galgje - 1"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/azzWaYX">
+                    Html galgje - 1</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+              <ul>
+                <li>
+                  Nu kunnen we code toevoegen binnen de body tag, alles wat in
+                  de body tag staat ga je visueel zien op je webpagina
+                </li>
+              </ul>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">2.2</span> In deze stap gaan we het
+                  visuele toetsenbord maken en zo ook de bij horende tekst, de
+                  svg files (de afbeeldingen) en de plaats waar het woord op
+                  gaat komen. voeg dit stukje code toe binnen de body tag:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="html"
+                data-slug-hash="bNNWZey"
+                data-pen-title="Hangman - 2"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/bNNWZey">
+                    Hangman - 2</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">2.3</span> Voor het stylen gebruiken
+                  we dus css, we werken hiervoor in het
+                  <span class="file__text--style">main.css</span> bestand. we
+                  stylen volgende elementen:
+                  <ul>
+                    <li>De hangman (het figuurtje)</li>
+                    <li>Het modal</li>
+                    <li>Het toetsenbord</li>
+                  </ul>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <span class="bold-number">2.4</span> De volgende code maakt de
+                  hangman visueel aantrekkelijker
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="css"
+                data-slug-hash="MYYrZRK"
+                data-pen-title="css"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/MYYrZRK">
+                    css</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+              <ul>
+                <li>
+                  <span class="bold-number">2.5</span> De volgende code is voor
+                  het modal
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="css"
+                data-slug-hash="LEEQMQb"
+                data-pen-title="css modal"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/LEEQMQb">
+                    css modal</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+              <ul>
+                <li>
+                  <span class="bold-number">2.6</span> De volgende is voor het
+                  toetsenbord
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="css"
+                data-slug-hash="PwwQXRR"
+                data-pen-title="css keyboard"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/PwwQXRR">
+                    css keyboard</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <ul>
+              <li>
+                Nu hebben we alle basiscode zodat we een goede look & feel
+                krijgen!
+              </li>
+            </ul>
+          </article>
+        </section>
+        <section class="container__steps" id="stepthree">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 3 - JavaScript linken + data</h2>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">3.1</span> We moeten eerst de link
+                  leggen tussen JavaScript, html en css. Dit doe je door dit
+                  stukje code toe te voegen:
+                  <ul>
+                    <li>
+                      Voor je
+                      <span class="file__text--style">main.js</span> bestand te
+                      linken schrijf je net boven de body tag helemaal vanonder
+                      het bestand
+                      <span class="file__text--style">index.html</span> dit:
+                      <br /><span class="file__text--style"
+                        >&lt;script type="module"
+                        src="./scripts/main.js"&gt;&lt;/script&gt;</span
+                      >
+                    </li>
+                    <li>
+                      Voor je
+                      <span class="file__text--style">main.css</span> bestand te
+                      linken schrijf je net boven de title tag dit: <br />
+                      <span class="file__text--style"
+                        >&lt;link rel="stylesheet"
+                        href="./styles/main.css"&gt;</span
+                      >
+                    </li>
+                  </ul>
+                  <p
+                    class="codepen"
+                    data-height="300"
+                    data-default-tab="html"
+                    data-slug-hash="bNNLOev"
+                    data-pen-title="Untitled"
+                    data-user="Quintenntje"
+                    style="
+                      height: 300px;
+                      box-sizing: border-box;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border: 2px solid;
+                      margin: 1em 0;
+                      padding: 1em;
+                    "
+                  >
+                    <span
+                      >See the Pen
+                      <a href="https://codepen.io/Quintenntje/pen/bNNLOev">
+                        Untitled</a
+                      >
+                      by Quinten (<a href="https://codepen.io/Quintenntje"
+                        >@Quintenntje</a
+                      >) on <a href="https://codepen.io">CodePen</a>.</span
+                    >
+                  </p>
+                  <script
+                    async
+                    src="https://public.codepenassets.com/embed/index.js"
+                  ></script>
+                </li>
+                <li>Nu is alles gelinkt met elkaar!</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul>
+                <li>
+                  <span class="bold-number">3.2</span> Vervolgens mag je dit
+                  toevoegen in je
+                  <span class="file__text--style">main.js</span>. Dit is de
+                  start van het spel en zorgt dat alles op het juiste moment
+                  gebeurt.
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="QwwvXGL"
+                data-pen-title="Untitled"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/QwwvXGL">
+                    Untitled</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">3.3</span> Nu maken we een lijst met
+                  data. Die data zijn de hints en de woorden die we gebruiken om
+                  het spel te spelen. Dit doen we in het json bestand, dus je
+                  mag dat bestand openen en deze data toevoegen:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="YPPVgdd"
+                data-pen-title="Untitled"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/YPPVgdd">
+                    Untitled</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+          </article>
+        </section>
+        <section class="container__steps" id="stepfour">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 4 - Woorden ophalen en maken</h2>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">4.1</span> Nu dat we onze data
+                  hebben moeten we de woordenlijst ophalen en ervoor zorgen dat
+                  we een random woord krijgen elke keer dat we het spel opnieuw
+                  spelen. Je mag beginnen met je
+                  <span class="file__text--style">main.js</span> bestand weer te
+                  openen
+                </li>
+                <li>
+                  <span class="bold-number">4.2</span> Als eerst maken we een
+                  functie die de woordenlijst ophaalt en een random woort terug
+                  geeft
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="MYYOBmZ"
+                data-pen-title="fetchWordList"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/MYYOBmZ">
+                    fetchWordList</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">4.3</span> We moeten er ook voor
+                  zorgen dat het random woort uit de woordenlijst wordt gehaald.
+                  Dit doe je met volgende functie
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="vEEWaJy"
+                data-pen-title="getRandomWord"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/vEEWaJy">
+                    getRandomWord</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">4.4</span> Nu zorgen we er voor dat
+                  het woord dat geraden moet worden, gebouwd wordt
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="zxxwQjG"
+                data-pen-title="Untitled"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/zxxwQjG">
+                    Untitled</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+          </article>
+        </section>
+        <section class="container__steps" id="stepfive">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 5 - Het toetsenbord</h2>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.1</span> Nu gaan we ervoor zorgen
+                  dat het toetsenbord werkt. Deze functie zorgt ervoor dat je
+                  met je muis de toetsen kunt indrukken en je ook effectief je
+                  eigen toetsenbord kan gebruiken
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="NPPjmMg"
+                data-pen-title="Untitled"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/NPPjmMg">
+                    Untitled</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.2</span> Nu het toetsenbord werkt
+                  moeten we ervoor zorgen dat het programma weet wanneer een
+                  letter wel of niet overeenkomt met het gezochte woord en dat
+                  je maar 6 kansen krijgt om het te raden. Dit doe je met
+                  volgende functie
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="oggoMJY"
+                data-pen-title="handleGuess"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/oggoMJY">
+                    handleGuess</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.3</span> Nu zorgen we ervoor dat:
+                  <ul>
+                    <li>alle juiste letters getoont worden in het woord</li>
+                    <li>
+                      als je een letter raadt die vaker voorkomt, het spel het
+                      dan gelijk toont
+                    </li>
+                    <li>
+                      wanneer je een toets hebt ingedrukt, deze uitgeschakeld
+                      wordt
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="NPPwBQE"
+                data-pen-title="addWordToList"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/NPPwBQE">
+                    addWordToList</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.4</span> Voor dat de functie die
+                  we net gemaakt hebben helemaal werkt heb je nog een aantal
+                  functies nodig namelijk:
+                  <ul>
+                    <li>
+                      Een functie die checkt of de ingevoerde letter in het
+                      woord zit
+                    </li>
+                    <li>
+                      Een functie checkt of een letter meerdere keren in het
+                      woord voorkomt
+                    </li>
+                    <li>Een functie die de woorden in letters splitst</li>
+                  </ul>
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="qEEVQXd"
+                data-pen-title="Untitled"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQXd">
+                    Untitled</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.5</span> Er moet ook gecontroleerd
+                  worden of de speler het hele woord correct heeft geraden
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="EaabOyz"
+                data-pen-title="checkWin"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/EaabOyz">
+                    checkWin</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">5.6</span> Natuurlijk willen we ook
+                  dat bij elke fout dat gemaakt wordt de tekening van de hangman
+                  wordt verder getekend, dit doe je door deze functie te
+                  implementeren:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="GggOwyE"
+                data-pen-title="drawHangman"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/GggOwyE">
+                    drawHangman</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div>
+              <ul>
+                <li>
+                  <span class="bold-number">5.7</span> En dan tot slot om het
+                  spel echt te laten starten moet je de start functie (initGame)
+                  nog eens aanroepen, dus dan mag je dit helemaal onderaan je
+                  pagina zetten:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="qEEVQGa"
+                data-pen-title="game start"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/qEEVQGa">
+                    game start</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+          </article>
+        </section>
+        <section class="container__steps" id="stepsix">
+          <article class="steps__item">
+            <div class="steps__item__title">
+              <h2>Stap 6 - Gewonnen of verloren?</h2>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  Nu de game zo goed als volledig af is gaan we er nog voor
+                  zorgen dat:
+                  <ul>
+                    <li>er een popup opkomt wanneer je verloren bent</li>
+                    <li>er een popup op komt wanneer je gewonnen bent</li>
+                    <li>de game gereset wordt</li>
+                  </ul>
+                </li>
+                <li>
+                  De style die je te zien gaat krijgen is de css die je al
+                  meekreeg in vorige stappen (wie nieuwschierig is kan al eens
+                  in het document
+                  <span class="file__text--style">main.css</span> gaan en eens
+                  kleuren veranderen)
+                </li>
+              </ul>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">6.1</span> De popup die opkomt
+                  wanneer je verloren bent:
+                </li>
+                <p>Voeg dit boven aan je JavaScript bestand toe.</p>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="emmeQQq"
+                data-pen-title="gameOver"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/emmeQQq">
+                    gameOver</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">6.2</span> De popup die opkomt
+                  wanneer je gewonnen bent:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="xbbPQMZ"
+                data-pen-title="gameWin"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/xbbPQMZ">
+                    gameWin</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <ul>
+                <li>
+                  <span class="bold-number">6.3</span> De functie voor de game
+                  te herstarten:
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="js"
+                data-slug-hash="raaYQRB"
+                data-pen-title="resetGame"
+                data-user="Liam-Schellinck"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Liam-Schellinck/pen/raaYQRB">
+                    resetGame</a
+                  >
+                  by Liam Schellinck (<a
+                    href="https://codepen.io/Liam-Schellinck"
+                    >@Liam-Schellinck</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="steps__items--text">
+              <div class="tip">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tip__icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                  />
+                </svg>
+
+                <p class="tip__text">
+                  Je kunt de tabs gebruiken om de HTML, CSS, JS code te zien.
+                </p>
+              </div>
+              <ul>
+                <li>
+                  <span class="bold-number">6.4</span> Alle code (HTML, CSS,
+                  JS):
+                </li>
+              </ul>
+              <p
+                class="codepen"
+                data-height="300"
+                data-default-tab="html"
+                data-slug-hash="YPPeBXa"
+                data-pen-title="Full code"
+                data-user="Quintenntje"
+                style="
+                  height: 300px;
+                  box-sizing: border-box;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid;
+                  margin: 1em 0;
+                  padding: 1em;
+                "
+              >
+                <span
+                  >See the Pen
+                  <a href="https://codepen.io/Quintenntje/pen/YPPeBXa">
+                    Full code</a
+                  >
+                  by Quinten (<a href="https://codepen.io/Quintenntje"
+                    >@Quintenntje</a
+                  >) on <a href="https://codepen.io">CodePen</a>.</span
+                >
+              </p>
+              <script
+                async
+                src="https://public.codepenassets.com/embed/index.js"
+              ></script>
+            </div>
+            <div class="container__content__footer">
+              <h3>Nu ben je volledig klaar en ready to play!</h3>
+            </div>
+          </article>
+        </section>
+      </section>
     </main>
     <script type="module" src="./scripts/main.js"></script>
-</body>
+  </body>
 </html>
