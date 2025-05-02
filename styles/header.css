@@ -6,6 +6,10 @@
   font-family: "Winky Rough", sans-serif;
   color: hsl(346.8, 77.2%, 49.8%);
 
+  .header__back{
+    margin: 1rem 0;
+  }
+
   @media screen and (min-width: 768px) {
     padding-left: 20rem;
   }

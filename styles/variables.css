@@ -22,4 +22,7 @@
 
   --warning: hsl(33, 100%, 50%);
   --warning-foreground: hsl(35, 100%, 95%);
+
+  --tip: hsl(210, 100%, 50%);
+  --tip-foreground: hsl(210, 100%, 97%);
 }
